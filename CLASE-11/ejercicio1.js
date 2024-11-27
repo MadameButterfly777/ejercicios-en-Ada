@@ -1,28 +1,22 @@
+/* Actividades:
+
+Ejercicio 1: ¿Positivo, negativo o cero?
+Consigna:
+Vamos a trabajar con números y aprender a clasificarlos. Escribe un programa
+que le pida al usuario un número cualquiera. El programa deberá analizar si el
+número ingresado es positivo, negativo o cero. Utiliza estructuras if para
+resolverlo y muestra un mensaje explicativo en cada caso. */
 
 const prompt = require('prompt-sync')(); 
 
-let numero = parseFloat(prompt("Escribe un número"));
-let mensaje1 = numero > 0 ? console.log("Es un número positivo") : console.log("El número es negativo") ;
-let mensaje2 = numero == 0 ? console.log("'El número es cero'") : mensaje1;
-console.log(mensaje2);
+let numero = parseFloat(prompt("Escribe un número: "));
 
-if (i === 3 ){
-    console.log("bla")
-}else if( i === 4) {
-    console.log('es cuatro')
+if (numero === 0 ){
+    console.log("el numero ingresado es 0")
+}else if( numero > 0) {
+    console.log("el numero ingresado es positivo")
 }                                                                    
 else {
-    console.log( "pepito")
+    console.log( "el numero ingresado es negativo")
 } 
-switch (i){
-    case 3: 
-        console.log('bla')
-        break
-    case 4:
-        console.log('es cuatro') 
-        break   
-    default:
-        console.log('pepito')
-        break
-} 
-i === 3 ? console.log('bla'): console.log('pepito')
+
