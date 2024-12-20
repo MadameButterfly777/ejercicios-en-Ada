@@ -23,11 +23,28 @@ d) Obtener cuál fue la semana que más gastos se realizaron. Indicar el
 día que más gastos se realizaron.
 ✓ Posibles matrices para comprobar los resultados */
 let matriz = [
-    [1135, 2500, 900, 1600, 2800, 3650, 1100],
-    [1750, 1890, 1900, 1300, 898, 1750, 2800],
-    [1700, 1150, 1690, 1900, 1770, 4500, 2560],
-    [800, 1250, 1430, 2100, 1980, 1270, 950],
+    [1, 2500, 900, 1600, 2800, 3650, 1100],
+    [1, 2, 2, 2, 2, 2, 2],
+    [1, 1150, 1690, 1900, 1770, 4500, 2560],
+    [1, 1250, 1430, 2100, 1980, 1270, 950],
 ];
+function maximo (numero1, numero2){
+    let maximo = 0 
+    if (numero1 > numero2){
+        maximo = numero1
+    } else {
+        maximo = numero2
+    }
+    return maximo
+}
+function buscarSemanaMaxima (){
+    let maximoActual = sumarSemana(1)
+    for (let indiceSemana = 2; indiceSemana <= 4; indiceSemana++){
+        maximoActual = maximo (maximoActual, sumarSemana(indiceSemana))
+    }
+     return maximoActual
+}
+
 
 function sumarSemana (numeroSemana){
     let indiceFila = numeroSemana - 1;
@@ -41,19 +58,24 @@ function sumarSemana (numeroSemana){
 function sumarDia ( numeroDia){
     let indiceColumna = numeroDia - 1;
     let suma = 0
-    for (let indiceColumna = 0; indiceColumna < matriz.length; indiceColumna++){
-        suma+= indiceColumna
+    for (let indiceFila = 0; indiceFila < matriz.length; indiceFila++){
+        suma+= matriz[indiceFila][indiceColumna]
     }
     return suma
 }
-console.log(sumarDia(3));
+console.log(sumarDia(1));
 
-console.log(sumarSemana(3))
+console.log(sumarSemana(2))
 
-let suma = 0
-for (let indiceFila = 0 ; indiceFila < matriz.length; indiceFila++ ){ 
-    for (let indiceColumna = 0 ; indiceColumna < matriz[indiceFila].length ; indiceColumna++){
-        suma+= matriz[indiceFila][indiceColumna]
+function sumaTotal(){
+    let suma = 0
+    for (let indiceFila = 0 ; indiceFila < matriz.length; indiceFila++ ){ 
+        for (let indiceColumna = 0 ; indiceColumna < matriz[indiceFila].length ; indiceColumna++){
+            suma+= matriz[indiceFila][indiceColumna]
+        }
     }
+    return suma
 }
-console.log(suma);
+
+console.log(sumaTotal());
+console.log(buscarSemanaMaxima());
